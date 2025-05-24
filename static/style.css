@@ -1,15 +1,16 @@
 body {
     margin: 0;
     padding: 0;
-    font-family: 'Noto Serif JP', serif;
+    font-family: 'Noto Sans JP', sans-serif;
     background-color: #fffbe9;
     color: #333;
+    line-height: 1.6;
 }
 
 .hero {
     position: relative;
     width: 100%;
-    height: 50vw;  /* 画像に対する高さ */
+    height: 50vw;
     overflow: hidden;
 }
 
@@ -24,7 +25,6 @@ body {
 }
 
 /* picture内のimgをフィットさせる */
-.hero-image picture,
 .hero-image img {
     width: 100%;
     height: 100%;
@@ -47,7 +47,7 @@ body {
 /* テキストは画像上に重ねる */
 .hero-text {
     position: absolute;
-    bottom: 2vw; /* ← かなり下に近づける */
+    bottom: 2vw;
     left: 0;
     width: 100%;
     display: flex;
@@ -104,12 +104,23 @@ body {
     border: 0.3vw solid #ccc;
     border-radius: 1vw;
     font-size: 2vw;
+    transition: border-color 0.3s ease;
 }
 
-.generate-btn {
-    display: block;
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #f4b041;
+    box-shadow: 0 0 0 2px rgba(244, 176, 65, 0.2);
+}
+
+.generate-btn,
+.copy-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 50%;
-    margin: 0 auto; /* ← これが重要 */
+    margin: 0 auto;
     padding: 2vw;
     background-color: #f4b041;
     color: #fff;
@@ -117,16 +128,48 @@ body {
     border: none;
     border-radius: 5vw;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: all 0.3s ease;
+    position: relative;
 }
 
-.generate-btn:hover {
+.generate-btn:hover,
+.copy-btn:hover {
     background-color: #e5a530;
+    transform: translateY(-2px);
+}
+
+.generate-btn:disabled,
+.copy-btn:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.loading-spinner {
+    display: none;
+    width: 4vw;
+    height: 4vw;
+    border: 0.4vw solid #fff;
+    border-top-color: transparent;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
 }
 
 .result-section {
     padding: 5vw;
     text-align: center;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.5s ease;
+}
+
+.result-section.visible {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .result-label {
@@ -144,23 +187,14 @@ body {
     border-radius: 1vw;
     resize: none;
     box-sizing: border-box;
+    background-color: #fff;
+    transition: border-color 0.3s ease;
 }
 
-.copy-btn {
-    display: block;
-    margin: 3vw auto;
-    background-color: #f4b041;
-    color: #fff;
-    font-size: 3.5vw;
-    padding: 1.5vw 4vw;
-    border: none;
-    border-radius: 5vw;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.copy-btn:hover {
-    background-color: #e5a530;
+.result-box:focus {
+    outline: none;
+    border-color: #f4b041;
+    box-shadow: 0 0 0 2px rgba(244, 176, 65, 0.2);
 }
 
 .post-invite p {
@@ -187,20 +221,22 @@ body {
     color: white;
     text-align: center;
     font-size: 2vw;
+    padding: 2vw 0;
     width: 100%;
     margin: 0;
 }
 
-.post-icon-1 {
-    width: 14vw;     /* ← ここを大きくする */
-    max-width: 300px; /* PC表示時の最大サイズ制限 */
+.post-icon-1,
+.post-icon-2 {
+    width: 14vw;
+    max-width: 300px;
     height: auto;
+    transition: transform 0.3s ease;
 }
 
-.post-icon-2{
-    width: 20vw;     /* ← ここを大きくする */
-    max-width: 300px; /* PC表示時の最大サイズ制限 */
-    height: auto;
+.post-icon-1:hover,
+.post-icon-2:hover {
+    transform: scale(1.05);
 }
 
 .copy-message {
@@ -221,4 +257,65 @@ body {
 
 .copy-message.show {
     opacity: 1;
+}
+
+.error-message {
+    position: fixed;
+    top: 2vw;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #ff4444;
+    color: #fff;
+    padding: 2vw 4vw;
+    font-size: 3vw;
+    border-radius: 2vw;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    z-index: 100;
+    text-align: center;
+    max-width: 80%;
+}
+
+.error-message.show {
+    opacity: 1;
+}
+
+@media (max-width: 768px) {
+    .survey {
+        max-width: 90vw;
+        padding: 4vw;
+    }
+
+    .form-group label {
+        font-size: 4vw;
+    }
+
+    .form-group select,
+    .form-group textarea {
+        font-size: 3.5vw;
+        padding: 2vw;
+    }
+
+    .generate-btn,
+    .copy-btn {
+        width: 70%;
+        font-size: 4.5vw;
+        padding: 2.5vw;
+    }
+
+    .result-box {
+        height: 50vw;
+        font-size: 4vw;
+    }
+
+    .post-invite p {
+        font-size: 4.5vw;
+    }
+
+    .copy-message,
+    .error-message {
+        font-size: 4vw;
+        padding: 3vw 5vw;
+    }
 }
