@@ -1,0 +1,8 @@
+Flask
+gunicorn
+flask-cors
+openai
+pandas
+gspread
+oauth2client
+python-dotenv
