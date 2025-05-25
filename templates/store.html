@@ -45,6 +45,7 @@
       </form>
 </section>
 
+{% if store.google_link and store.store_link %}
 <section class="result-section">
   <p class="result-label"><strong>こちらの口コミ案をよろしければお使いください</strong></p>
   <textarea class="result-box" id="reviewText"></textarea>
@@ -57,9 +58,10 @@
     </a>
     <a href="{{ store.store_link }}" target="_blank">
         <img src="{{ store.store_logo }}" alt="投稿サイト" class="post-icon-2">
-      </a>      
+    </a>      
   </div>
 </section>
+{% endif %}
 
 <footer class="footer">
   <p>{{ store.store_name }}</p>
