@@ -79,64 +79,79 @@
   }
 
   async function handleSubmit() {
-    const formData = {};
-    document.querySelectorAll("#review-form select, #review-form textarea").forEach(el => {
-      formData[el.name] = el.value;
-    });
+  const formData = {};
+  document.querySelectorAll("#review-form select, #review-form textarea").forEach(el => {
+    formData[el.name] = el.value;
+  });
 
-    const values = Object.entries(formData).map(([k, v]) => `- ${k}: ${v}`).join("\n");
+  const ratingId = "評価点"; // ←ここを正しい質問IDに合わせてください
+  const rating = formData[ratingId];
 
-    const prompt = `以下はお客様が店舗でサービスを体験された際のアンケート回答内容です。
-    \n${values}\n\n
-    この内容をもとに、実際に体験した一般のお客様が書いたような自然な日本語の口コミ文を1件のみ作成してください。  
-    口コミの内容は、アンケート内に記載された「5点満点のうちの評価点数」に必ず一致させ、数値ではなくトーンや表現で評価を示してください。
-
-    ――――――――――  
-    ■ 評価別トーン・文字数  
-    1点（冷静にやや否定的／おすすめしない）：100文字±5字  
-    2点（控えめに不満点を指摘／現時点ではおすすめしない）：100文字±5字  
-    3点（良い点と気になる点をバランス良く）：150文字±5字  
-    4点（好印象・再訪前向き）：300文字±5字  
-    5点（大満足・他人にすすめたい）：400文字±5字  
-
-    ■ 出力時の必須ルール  
-    - 必ず1つの評価点に基づく内容のみ。混在禁止。  
-    - 口コミ以外の余計な文言を出力しない。  
-    - 文字数チェック後、指定文字数に収まるまで以下を繰り返す：  
-      1. 不足→店内の雰囲気／スタッフ対応／サービスの流れ／心情の変化などから具体的描写を想像で補完  
-      2. 超過→冗長な表現を簡潔に言い換え  
-
-    ――――――――――  
-    ＜生成フロー＞  
-    1. ルールに沿ってドラフトを作成  
-    2. 文字数カウント＆該当範囲か確認  
-    3. 不足なら想像で肉付け、超過なら削減  
-    4. 手順2～3を条件を満たすまで繰り返し  
-    5. 最終出力として口コミ文のみを表示し、末尾に「【文字数：○○文字】」を記載  
-
-    ――――――――――  
-    ※もし${values}だけでは情報が足りない場合、以下の観点を想像で補完して文字数を確保してください。  
-    - 店内の雰囲気（インテリア、音楽、清潔感）  
-    - スタッフの対応（挨拶、説明の丁寧さ、笑顔）  
-    - サービスの流れ（受付→施術→アフターケア）  
-    - 自身の心情（期待、驚き、安心感）  
-    `; 
-    const reviewBox = document.getElementById("reviewText");
-    reviewBox.value = "生成中...";
-
-    try {
-      const response = await fetch("/api/generate", {
-        method: "POST",
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ prompt })
-      });
-      const data = await response.json();
-      reviewBox.value = data.result || "生成に失敗しました。";
-    } catch (err) {
-      console.error("エラー:", err);
-      reviewBox.value = "エラーが発生しました。";
-    }
+  if (!rating || !["1", "2", "3", "4", "5"].includes(rating)) {
+    alert("評価点数が正しく入力されていません。");
+    return;
   }
+
+  const values = Object.entries(formData).map(([k, v]) => `- ${k}: ${v}`).join("\n");
+
+  const basePrompt = `以下はお客様が店舗でサービスを体験された際のアンケート回答内容です。\n${values}\n\n`;
+
+  const promptMap = {
+  "1": `
+100文字前後で、やや否定的で冷静なトーンの口コミを生成してください。
+- 内容はおすすめしないことが伝わるもの。
+- 感情的ではなく、事実や体験ベースで表現。
+- 口コミ以外の余計な文言は含めないでください。
+`,
+
+  "2": `
+100文字前後で、控えめに不満点を指摘する口コミを生成してください。
+- 現時点ではおすすめしないトーン。
+- 攻撃的ではなく、改善の余地を伝える表現。
+- 口コミ以外の余計な文言は含めないでください。
+`,
+
+  "3": `
+150文字前後で、良かった点と気になった点をバランスよく含めた口コミを生成してください。
+- 利点と課題が両方書かれていること。
+- 中立的なトーンを意識してください。
+- 口コミ以外の余計な文言は含めないでください。
+`,
+
+  "4": `
+300文字前後で、好印象を与える口コミを生成してください。
+- スタッフの対応や店内の雰囲気なども自然に取り入れてください。
+- 再訪したい気持ちが伝わるトーンで。
+- 口コミ以外の余計な文言は含めないでください。
+`,
+
+  "5": `
+400文字前後で、非常に満足し他人にも勧めたいという気持ちが伝わる口コミを生成してください。
+- サービスの流れや自分の感情の変化なども盛り込んでください。
+- 熱意が伝わるように、ポジティブかつ具体的な内容で構成してください。
+- 口コミ以外の余計な文言は含めないでください。
+`
+};
+
+
+  const prompt = `${basePrompt}${promptMap[rating]}\n口コミ以外の文言は不要です。`;
+
+  const reviewBox = document.getElementById("reviewText");
+  reviewBox.value = "生成中...";
+
+  try {
+    const response = await fetch("/api/generate", {
+      method: "POST",
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ prompt })
+    });
+    const data = await response.json();
+    reviewBox.value = data.result || "生成に失敗しました。";
+  } catch (err) {
+    console.error("エラー:", err);
+    reviewBox.value = "エラーが発生しました。";
+  }
+}
 </script>
 
 </body>
