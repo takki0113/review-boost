@@ -6,7 +6,7 @@
     "hero_image": "https://i.imgur.com/WONHG0z.png",
     "store_logo": "https://i.imgur.com/WONHG0z.png",
     "google_link": "https://g.page/r/CQZK9aLDn-QGEBM/review",
-    "google_img": null,
+    "google_img": "https://i.imgur.com/NGYI7cU.png",
     "store_link": null,
     "questions": [
       {
@@ -79,7 +79,7 @@
     "hero_image": "https://i.imgur.com/hJ3oZGA.jpeg",
     "store_logo": "https://i.imgur.com/hJ3oZGA.jpeg",
     "google_link": "https://g.page/r/CQZK9aLDn-QGEBM/review",
-    "google_img": null,
+    "google_img": "https://i.imgur.com/NGYI7cU.png",
     "store_link": null,
     "questions": [
       {
@@ -150,47 +150,73 @@
     ]
   },
   {
-    "store_id": "999",
-    "store_name": "テスト",
+    "store_id": "3",
+    "store_name": "Stimu nail",
     "title": "ネイルサロン",
-    "hero_image": "",
-    "store_logo": "",
-    "google_link": "",
-    "google_img": null,
+    "hero_image": "https://i.imgur.com/hJ3oZGA.jpeg",
+    "store_logo": "https://i.imgur.com/hJ3oZGA.jpeg",
+    "google_link": "https://g.page/r/CQZK9aLDn-QGEBM/review",
+    "google_img": "https://i.imgur.com/NGYI7cU.png",
     "store_link": null,
     "questions": [
       {
         "id": "q1",
-        "label": "あ",
+        "label": "評価【5点満点中】",
         "type": "select",
         "options": [
           "1点",
-          "2点"
+          "2点",
+          "3点",
+          "4点",
+          "5点"
         ]
       },
       {
         "id": "q2",
-        "label": "",
+        "label": "性別",
         "type": "select",
-        "options": []
+        "options": [
+          "男性",
+          "女性",
+          "未回答"
+        ]
       },
       {
         "id": "q3",
-        "label": "",
+        "label": "年齢",
         "type": "select",
-        "options": []
+        "options": [
+          "10代",
+          "20代",
+          "30代",
+          "40代",
+          "50代",
+          "60代"
+        ]
       },
       {
         "id": "q4",
-        "label": "",
+        "label": "コース名・サービス名",
         "type": "select",
-        "options": []
+        "options": [
+          "パラジェル",
+          "フィルイン",
+          "韓国ネイル",
+          "ジェルネイル",
+          "シンプルネイル",
+          "定額ネイル"
+        ]
       },
       {
         "id": "q5",
-        "label": "",
+        "label": "良かった点",
         "type": "select",
-        "options": []
+        "options": [
+          "接客がいい",
+          "技術力がある",
+          "店内の雰囲気がオシャレ",
+          "コスパがいい"
+        ]
       },
       {
         "id": "q6",
