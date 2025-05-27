@@ -290,8 +290,8 @@
   },
   {
     "store_id": "999",
-    "store_name": "",
-    "title": "｜アンケート",
+    "store_name": "テスト",
+    "title": "ネイルサロン",
     "hero_image": "",
     "store_logo": "",
     "google_link": "",
@@ -299,9 +299,12 @@
     "questions": [
       {
         "id": "q1",
-        "label": "",
+        "label": "あ",
         "type": "select",
-        "options": []
+        "options": [
+          "1点",
+          "2点"
+        ]
       },
       {
         "id": "q2",
