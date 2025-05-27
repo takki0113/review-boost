@@ -193,5 +193,146 @@
         "placeholder": "例：スタッフさんがとても親切でした。"
       }
     ]
+  },
+  {
+    "store_id": "",
+    "store_name": "",
+    "title": "｜アンケート",
+    "hero_image": "",
+    "store_logo": "",
+    "google_link": "",
+    "store_link": null,
+    "questions": [
+      {
+        "id": "q1",
+        "label": "",
+        "type": "select",
+        "options": []
+      },
+      {
+        "id": "q2",
+        "label": "",
+        "type": "select",
+        "options": []
+      },
+      {
+        "id": "q3",
+        "label": "",
+        "type": "select",
+        "options": []
+      },
+      {
+        "id": "q4",
+        "label": "",
+        "type": "select",
+        "options": []
+      },
+      {
+        "id": "q5",
+        "label": "",
+        "type": "select",
+        "options": []
+      },
+      {
+        "id": "q6",
+        "label": null,
+        "type": "textarea",
+        "placeholder": "例：スタッフさんがとても親切でした。"
+      }
+    ]
+  },
+  {
+    "store_id": "",
+    "store_name": "",
+    "title": "｜アンケート",
+    "hero_image": "",
+    "store_logo": "",
+    "google_link": "",
+    "store_link": null,
+    "questions": [
+      {
+        "id": "q1",
+        "label": "",
+        "type": "select",
+        "options": []
+      },
+      {
+        "id": "q2",
+        "label": "",
+        "type": "select",
+        "options": []
+      },
+      {
+        "id": "q3",
+        "label": "",
+        "type": "select",
+        "options": []
+      },
+      {
+        "id": "q4",
+        "label": "",
+        "type": "select",
+        "options": []
+      },
+      {
+        "id": "q5",
+        "label": "",
+        "type": "select",
+        "options": []
+      },
+      {
+        "id": "q6",
+        "label": null,
+        "type": "textarea",
+        "placeholder": "例：スタッフさんがとても親切でした。"
+      }
+    ]
+  },
+  {
+    "store_id": "999",
+    "store_name": "",
+    "title": "｜アンケート",
+    "hero_image": "",
+    "store_logo": "",
+    "google_link": "",
+    "store_link": null,
+    "questions": [
+      {
+        "id": "q1",
+        "label": "",
+        "type": "select",
+        "options": []
+      },
+      {
+        "id": "q2",
+        "label": "",
+        "type": "select",
+        "options": []
+      },
+      {
+        "id": "q3",
+        "label": "",
+        "type": "select",
+        "options": []
+      },
+      {
+        "id": "q4",
+        "label": "",
+        "type": "select",
+        "options": []
+      },
+      {
+        "id": "q5",
+        "label": "",
+        "type": "select",
+        "options": []
+      },
+      {
+        "id": "q6",
+        "label": null,
+        "type": "textarea",
+        "placeholder": "例：スタッフさんがとても親切でした。"
+      }
+    ]
   }
 ]
