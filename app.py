@@ -11,6 +11,9 @@ load_dotenv()
 # OpenAI APIキー設定
 openai.api_key = os.getenv("OPENAI_API_KEY")
 
+# OpenAI クライアント初期化（v1 SDK対応）
+client = openai.OpenAI()
+
 # Flask アプリケーション初期化
 app = Flask(__name__)
 CORS(app)
@@ -67,3 +70,8 @@ def generate_review():
     except Exception as e:
         print("❌ エラー内容:", e)
         return jsonify({"error": str(e)}), 500
+
+
+# アプリ起動（ローカルテスト用）
+if __name__ == "__main__":
+    app.run(debug=True)
