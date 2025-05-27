@@ -6,6 +6,7 @@
     "hero_image": "https://i.imgur.com/WONHG0z.png",
     "store_logo": "https://i.imgur.com/WONHG0z.png",
     "google_link": "https://g.page/r/CQZK9aLDn-QGEBM/review",
+    "google_img": null,
     "store_link": null,
     "questions": [
       {
@@ -78,6 +79,7 @@
     "hero_image": "https://i.imgur.com/hJ3oZGA.jpeg",
     "store_logo": "https://i.imgur.com/hJ3oZGA.jpeg",
     "google_link": "https://g.page/r/CQZK9aLDn-QGEBM/review",
+    "google_img": null,
     "store_link": null,
     "questions": [
       {
@@ -154,6 +156,7 @@
     "hero_image": "",
     "store_logo": "",
     "google_link": "",
+    "google_img": null,
     "store_link": null,
     "questions": [
       {
@@ -197,4 +200,4 @@
       }
     ]
   }
-] 
+]
