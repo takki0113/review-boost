@@ -59,7 +59,7 @@ def generate_review():
                 {"role": "user", "content": prompt}
             ],
             temperature=0.7,
-            max_tokens=350
+            max_tokens=600
         )
         result = response.choices[0].message.content.strip()
         print("✅ 生成成功:", result)
