@@ -6,4 +6,4 @@ pandas
 gspread
 oauth2client
 python-dotenv
-openai>=1.2.0
+openai>=1.2.0pandas
