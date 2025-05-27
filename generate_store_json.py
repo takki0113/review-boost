@@ -62,3 +62,5 @@ with open("store.json", "w", encoding="utf-8") as f:
     json.dump(store_data, f, ensure_ascii=False, indent=2)
 
 print("✅ store.json を生成しました。")
+
+print(json.dumps(store_data, indent=2, ensure_ascii=False))
