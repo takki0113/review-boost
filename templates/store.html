@@ -71,17 +71,14 @@
     document.querySelectorAll("#review-form select, #review-form textarea").forEach(el => {
       formData[el.name] = el.value;
     });
-  
-    console.log("送信されたフォームデータ:", formData);
-  
-    const ratingRaw = formData["q1"];  // ← 評価点の質問ID。変わる場合はここを動的化してもOK
+
+    const ratingRaw = formData["q1"];
     if (!ratingRaw || !ratingRaw.match(/^[1-5]点$/)) {
       alert("評価点数が正しく入力されていません。");
       return;
     }
-  
-    const rating = ratingRaw.replace("点", ""); // "5点" → "5"
-  
+
+    const rating = ratingRaw.replace("点", "");
     const promptMap = {
       "1": `100文字前後で、やや否定的で冷静なトーンの口コミを生成してください。\n- 内容はおすすめしないことが伝わるもの。\n- 感情的ではなく、事実や体験ベースで表現してください。\n- 口コミ以外の余計な文言は含めないでください。`,
       "2": `100文字前後で、控えめに不満点を指摘する口コミを生成してください。\n- 現時点ではおすすめしないという印象で。\n- 課題があっても丁寧な言葉で伝えてください。\n- 口コミ以外の文言は禁止です。`,
@@ -89,16 +86,14 @@
       "4": `300文字前後で、全体的に好印象で再訪したいというトーンの口コミを生成してください。\n- 接客・店内雰囲気などの印象を含めてください。\n- 口コミ文のみでお願いします。`,
       "5": `400文字前後で、非常に満足し他人にもおすすめしたいというトーンの口コミを生成してください。\n- 感情の動きや印象的なサービス体験を含めてください。\n- ポジティブで自然な日本語の口コミ文のみ出力してください。`
     };
-  
+
     const values = Object.entries(formData).map(([k, v]) => `- ${k}: ${v}`).join("\n");
     const basePrompt = `以下はお客様が店舗でサービスを体験された際のアンケート回答内容です：\n${values}\n\n`;
     const prompt = basePrompt + promptMap[rating];
-  
-    console.log("生成されるプロンプト：", prompt);
-  
+
     const reviewBox = document.getElementById("reviewText");
     reviewBox.value = "生成中...";
-  
+
     try {
       const response = await fetch("/api/generate", {
         method: "POST",
@@ -112,8 +107,22 @@
       reviewBox.value = "エラーが発生しました。";
     }
   }
-  </script>
-  
+
+  function copyToClipboard() {
+    const text = document.getElementById("reviewText").value;
+    if (!text) return;
+
+    navigator.clipboard.writeText(text)
+      .then(() => {
+        const msg = document.getElementById("copyMessage");
+        msg.style.display = "block";
+        setTimeout(() => msg.style.display = "none", 2000);
+      })
+      .catch(err => {
+        console.error("コピー失敗:", err);
+      });
+  }
+</script>
 
 </body>
 </html>
