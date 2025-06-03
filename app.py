@@ -10,41 +10,51 @@ load_dotenv()
 
 # OpenAI APIキー設定
 openai.api_key = os.getenv("OPENAI_API_KEY")
-
-# OpenAI クライアント初期化（v1 SDK対応）
 client = openai.OpenAI()
 
 # Flask アプリケーション初期化
 app = Flask(__name__)
 CORS(app)
 
-# JSONデータ読み込み
+# ディレクトリ設定
 basedir = os.path.abspath(os.path.dirname(__file__))
+
+# ✅ 店舗データ読み込み
 with open(os.path.join(basedir, 'store.json'), 'r', encoding='utf-8') as f:
     stores = json.load(f)
 
+# ✅ トークンとstore_idのマップ読み込み
+# 例：{"abcdef123": "1", "ghijkl456": "2"}
+with open(os.path.join(basedir, 'tokens.json'), 'r', encoding='utf-8') as f:
+    token_map = json.load(f)
+
 print("✅ store.json 読み込み成功。全件数:", len(stores))
+print("✅ tokens.json 読み込み成功。登録トークン数:", len(token_map))
 
-
-# ホーム確認用
+# ✅ ホームエントリーポイント：トークン方式
 @app.route("/")
 def home():
-    return "口コミAIツール：稼働中です！ /store/<id> にアクセスしてください"
+    token = request.args.get("t")
+    if not token:
+        return "❌ トークンが必要です。URLに ?t=xxx を付けてください。", 400
 
-
-# 各店舗ページ
-@app.route("/store/<store_id>")
-def store_page(store_id):
-    print(f"📍 リクエストされた store_id: {store_id}")
-    print(f"🗂️ 登録されている store_ids: {[s['store_id'] for s in stores]}")
+    store_id = token_map.get(token)
+    if not store_id:
+        return "❌ 無効なトークンです。", 404
 
     store_data = next((s for s in stores if s["store_id"] == store_id), None)
     if not store_data:
-        return "店舗が見つかりませんでした。", 404
+        return "❌ 店舗が見つかりませんでした。", 404
+
+    print(f"🔓 トークン:{token} → store_id:{store_id}")
     return render_template("store.html", store=store_data)
 
+# ❌ 廃止または開発者用（任意でコメントアウト可）
+@app.route("/store/<store_id>")
+def store_page(store_id):
+    return "このURLは無効です。/?t=xxxx をご利用ください。", 403
 
-# 口コミ生成API
+# ✅ 口コミ生成API
 @app.route("/api/generate", methods=["POST"])
 def generate_review():
     data = request.get_json()
@@ -71,7 +81,6 @@ def generate_review():
         print("❌ エラー内容:", e)
         return jsonify({"error": str(e)}), 500
 
-
-# アプリ起動（ローカルテスト用）
+# アプリ起動
 if __name__ == "__main__":
     app.run(debug=True)
