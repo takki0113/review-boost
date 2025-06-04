@@ -151,13 +151,13 @@
   },
   {
     "store_id": "3",
-    "store_name": "Stimu nail",
-    "title": "ネイルサロン",
-    "hero_image": "https://i.imgur.com/hJ3oZGA.jpeg",
-    "store_logo": "https://i.imgur.com/hJ3oZGA.jpeg",
-    "google_link": "https://g.page/r/CQZK9aLDn-QGEBM/review",
+    "store_name": "family fitness care",
+    "title": "パーソナルジム",
+    "hero_image": "https://i.imgur.com/tU2qFzN.jpeg",
+    "store_logo": "https://i.imgur.com/cA7H9V5.jpeg",
+    "google_link": "https://www.google.com/search?q=%0D%0A%E3%83%95%E3%82%A1%E3%83%9F%E3%83%AA%E3%83%BC%E3%83%95%E3%82%A3%E3%83%83%E3%83%88%E3%83%8D%E3%82%B9%E3%82%B1%E3%82%A2%EF%BC%88family+fitness+care%EF%BC%89&sca_esv=41514daaec8f90aa&rlz=1C5CHFA_enJP1136JP1137&sxsrf=AE3TifMXOdSUVvWiBkUneuiebQlCo7ogyw%3A1749031843899&ei=oxtAaPDRNrjl2roP64zI4Qc&ved=0ahUKEwiwr4auw9eNAxW4slYBHWsGMnwQ4dUDCBA&uact=5&oq=%0D%0A%E3%83%95%E3%82%A1%E3%83%9F%E3%83%AA%E3%83%BC%E3%83%95%E3%82%A3%E3%83%83%E3%83%88%E3%83%8D%E3%82%B9%E3%82%B1%E3%82%A2%EF%BC%88family+fitness+care%EF%BC%89&gs_lp=Egxnd3Mtd2l6LXNlcnAiQQrjg5XjgqHjg5_jg6rjg7zjg5XjgqPjg4Pjg4jjg43jgrnjgrHjgqLvvIhmYW1pbHkgZml0bmVzcyBjYXJl77yJMgoQABiwAxjWBBhHSMsHUJwEWJwEcAN4AZABAJgBAKABAKoBALgBA8gBAPgBAvgBAZgCA6ACBJgDAIgGAZAGAZIHATOgBwCyBwC4BwDCBwMyLjHIBwM&sclient=gws-wiz-serp#lrd=0x6018c7ded98053b9:0xed79ba33ea154b3c,3,,,,",
     "google_img": "https://i.imgur.com/NGYI7cU.png",
-    "store_link": "https://www.tripadvisor.jp/UserReviewEdit-g681222-d7279613-Kushiyaki_Ichiba-Hiratsuka_Kanagawa_Prefecture_Kanto.html",
+    "store_link": "https://www.instagram.com/family.fitness.care/?hl=ja",
     "questions": [
       {
         "id": "q1",
@@ -199,12 +199,11 @@
         "label": "コース名・サービス名",
         "type": "select",
         "options": [
-          "パラジェル",
-          "フィルイン",
-          "韓国ネイル",
-          "ジェルネイル",
-          "シンプルネイル",
-          "定額ネイル"
+          "パーソナルトレーニング",
+          "セミパーソナルトレーニング",
+          "出張パーソナルトレーニング",
+          "グループレッスン",
+          "グループセミナー"
         ]
       },
       {
@@ -212,10 +211,11 @@
         "label": "良かった点",
         "type": "select",
         "options": [
-          "接客がいい",
-          "技術力がある",
-          "店内の雰囲気がオシャレ",
-          "コスパがいい"
+          "トレーナーが親身で相談しやすかった",
+          "食事指導が具体的で実践しやすかった",
+          "体の変化を実感できて自信がついた",
+          "初心者でも安心して取り組める雰囲気だった",
+          "清潔感があって居心地が良かった"
         ]
       },
       {
