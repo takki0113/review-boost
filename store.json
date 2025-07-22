@@ -225,5 +225,159 @@
         "placeholder": "例：スタッフさんがとても親切でした。"
       }
     ]
+  },
+  {
+    "store_id": "4",
+    "store_name": "HPER 三鷹店",
+    "title": "パーソナルジム",
+    "hero_image": "https://i.imgur.com/rOP7yEI.png",
+    "store_logo": "https://i.imgur.com/rOP7yEI.png",
+    "google_link": "https://g.page/r/CX0MOZRMDPt4EBM/review",
+    "google_img": "https://i.imgur.com/NGYI7cU.png",
+    "store_link": "https://www.instagram.com/hper.mitaka/?fbclid=IwZXh0bgNhZW0CMTEAAR02ccGhWzpU-e6vXJZPFqNDhr4utkU6lR-hYmCuRq8P69fZ2q83wRNLUOA_aem_QwTvSlHo_e0APKiY-i1pqA",
+    "questions": [
+      {
+        "id": "q1",
+        "label": "評価【5点満点中】",
+        "type": "select",
+        "options": [
+          "1点",
+          "2点",
+          "3点",
+          "4点",
+          "5点"
+        ]
+      },
+      {
+        "id": "q2",
+        "label": "性別",
+        "type": "select",
+        "options": [
+          "男性",
+          "女性",
+          "未回答"
+        ]
+      },
+      {
+        "id": "q3",
+        "label": "年齢",
+        "type": "select",
+        "options": [
+          "10代",
+          "20代",
+          "30代",
+          "40代",
+          "50代",
+          "60代"
+        ]
+      },
+      {
+        "id": "q4",
+        "label": "コース名・サービス名",
+        "type": "select",
+        "options": [
+          "シュウイチコース",
+          "スタンダードコース",
+          "モニターコース",
+          "無料カウンセリング",
+          "1日体験コース"
+        ]
+      },
+      {
+        "id": "q5",
+        "label": "良かった点",
+        "type": "select",
+        "options": [
+          "トレーナーが親身で相談しやすかった",
+          "食事指導が具体的で実践しやすかった",
+          "体の変化を実感できて自信がついた",
+          "初心者でも安心して取り組める雰囲気だった",
+          "清潔感があって居心地が良かった"
+        ]
+      },
+      {
+        "id": "q6",
+        "label": "ご要望やご意見があればこちらにお願いします",
+        "type": "textarea",
+        "placeholder": "例：スタッフさんがとても親切でした。"
+      }
+    ]
+  },
+  {
+    "store_id": "5",
+    "store_name": "HPER 多摩センター店",
+    "title": "パーソナルジム",
+    "hero_image": "https://i.imgur.com/rOP7yEI.png",
+    "store_logo": "https://i.imgur.com/rOP7yEI.png",
+    "google_link": "https://g.page/r/CSb9MkIEsfetEBM/review",
+    "google_img": "https://i.imgur.com/NGYI7cU.png",
+    "store_link": "https://www.instagram.com/hpertamacenter/?fbclid=IwZXh0bgNhZW0CMTEAAR3t0WGPpGAZ9zXM_8siyXLGayfcYIY6Lmsjaj5bMgdIG9phQKKdUqi5ggI_aem_WaKTIv99fvdw_J_t58Ek2w",
+    "questions": [
+      {
+        "id": "q1",
+        "label": "評価【5点満点中】",
+        "type": "select",
+        "options": [
+          "1点",
+          "2点",
+          "3点",
+          "4点",
+          "5点"
+        ]
+      },
+      {
+        "id": "q2",
+        "label": "性別",
+        "type": "select",
+        "options": [
+          "男性",
+          "女性",
+          "未回答"
+        ]
+      },
+      {
+        "id": "q3",
+        "label": "年齢",
+        "type": "select",
+        "options": [
+          "10代",
+          "20代",
+          "30代",
+          "40代",
+          "50代",
+          "60代"
+        ]
+      },
+      {
+        "id": "q4",
+        "label": "コース名・サービス名",
+        "type": "select",
+        "options": [
+          "シュウイチコース",
+          "スタンダードコース",
+          "モニターコース",
+          "無料カウンセリング",
+          "1日体験コース"
+        ]
+      },
+      {
+        "id": "q5",
+        "label": "良かった点",
+        "type": "select",
+        "options": [
+          "トレーナーが親身で相談しやすかった",
+          "食事指導が具体的で実践しやすかった",
+          "体の変化を実感できて自信がついた",
+          "初心者でも安心して取り組める雰囲気だった",
+          "清潔感があって居心地が良かった"
+        ]
+      },
+      {
+        "id": "q6",
+        "label": "ご要望やご意見があればこちらにお願いします",
+        "type": "textarea",
+        "placeholder": "例：スタッフさんがとても親切でした。"
+      }
+    ]
   }
 ]
